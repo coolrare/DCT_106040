@@ -8,6 +8,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'cards/:type', component: CardsComponent },
+  { path: 'charts',
+    loadChildren: './charts/charts.module#ChartsModule'
+  },
   fallbackRoute
 ];
 
