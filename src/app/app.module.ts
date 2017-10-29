@@ -7,6 +7,7 @@ import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
+import { FlotComponent } from './charts/flot/flot.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CardsComponent } from './cards/cards.component';
     Page1Component,
     Page2Component,
     DashboardComponent,
-    CardsComponent
+    CardsComponent,
+    FlotComponent
   ],
   imports: [
     BrowserModule,
