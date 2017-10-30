@@ -15,14 +15,14 @@
           <div class="card-body">
             <div class="mda-form-group float-label mda-input-group">
               <div class="mda-form-control">
-                <input type="email" name="accountName" required="" class="form-control">
+                <input type="email" [(ngModel)]="username" name="accountName" required="" class="form-control">
                 <div class="mda-form-control-line"></div>
                 <label>Email address</label>
               </div><span class="mda-input-group-addon"><em class="ion-ios-email-outline icon-lg"></em></span>
             </div>
             <div class="mda-form-group float-label mda-input-group">
               <div class="mda-form-control">
-                <input type="password" name="accountPassword" required="" class="form-control">
+                <input type="password" [(ngModel)]="password" name="accountPassword" required="" class="form-control">
                 <div class="mda-form-control-line"></div>
                 <label>Password</label>
               </div><span class="mda-input-group-addon"><em class="ion-ios-locked-outline icon-lg"></em></span>
