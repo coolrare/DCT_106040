@@ -1,15 +1,31 @@
 <section>
   <div class="container-fluid">
     <h5 class="mt0">Model-driven form</h5>
-    <p class="mb-lg">Standard Bootstrap form and input controls with customized UI variations</p>
+    <pre>form.value     = {{ form.value | json }}
+form.valid     = {{ form.valid}}
+form.invalid   = {{ form.invalid}}
+form.pristine  = {{ form.pristine}}
+form.dirty     = {{ form.dirty}}
+form.touched   = {{ form.touched}}
+form.untouched = {{ form.untouched}}
+form.errors    = {{ form.errors | json}}
+</pre>
     <div class="card">
       <div class="card-body">
-        <form method="get" action="/" class="form-horizontal">
+        <form [formGroup]="form" method="get" class="form-horizontal">
           <fieldset>
             <div class="form-group">
               <label class="col-sm-2 control-label">Rounded Corners</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control rounded">
+                <input type="text" class="form-control rounded"
+                  formControlName="title">
+<pre class="help-block">value     = {{form.controls['title'].value}}
+pristine  = {{form.get('title').pristine}}
+dirty     = {{form.get('title').dirty}}
+touched   = {{form.get('title').touched}}
+untouched = {{form.get('title').untouched}}
+errors    = {{form.get('title').errors | json}}
+</pre>
               </div>
             </div>
           </fieldset>
@@ -17,7 +33,8 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">With help</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                <input type="text" class="form-control"
+                  formControlName="subtitle"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
               </div>
             </div>
           </fieldset>
