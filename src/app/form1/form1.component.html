@@ -6,20 +6,27 @@
       <div class="card-body">
         <form method="get" action="/" class="form-horizontal">
           <fieldset>
-            <div class="form-group">
+            <div class="form-group" [class.has-error]="mTitle.touched && mTitle.invalid">
               <label class="col-sm-2 control-label">Title</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control rounded"
+                <input type="text" class="form-control rounded" required minlength="3" maxlength="20" pattern="\[.*\] .+"
                   name="title" [(ngModel)]="data.title" #mTitle="ngModel">
+<pre class="help-block">value     = {{mTitle.value}}
+pristine  = {{mTitle.pristine}}
+dirty     = {{mTitle.dirty}}
+touched   = {{mTitle.touched}}
+untouched = {{mTitle.untouched}}
+errors    = {{mTitle.errors | json}}
+</pre>
               </div>
             </div>
           </fieldset>
           <fieldset>
-            <div class="form-group" [class.has-error]="mSubtitle['errors']?.required">
+            <div class="form-group" [class.has-error]="mSubtitle.touched && mSubtitle.invalid">
               <label class="col-sm-2 control-label">Subtitle</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control"
-                name="subtitle" required [(ngModel)]="data.subtitle" #mSubtitle="ngModel">
+                name="subtitle" required minlength="3" maxlength="50" [(ngModel)]="data.subtitle" #mSubtitle="ngModel">
                 <span class="help-block" *ngIf="mSubtitle['errors']?.required">請填寫 Subtitle</span>
 <pre class="help-block">value     = {{mSubtitle.value}}
 pristine  = {{mSubtitle.pristine}}
