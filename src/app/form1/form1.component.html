@@ -15,12 +15,12 @@
             </div>
           </fieldset>
           <fieldset>
-            <div class="form-group" [class.has-error]="mSubtitle.errors?.required">
+            <div class="form-group" [class.has-error]="mSubtitle['errors']?.required">
               <label class="col-sm-2 control-label">Subtitle</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control"
                 name="subtitle" required [(ngModel)]="data.subtitle" #mSubtitle="ngModel">
-                <span class="help-block" *ngIf="mSubtitle.errors?.required">請填寫 Subtitle</span>
+                <span class="help-block" *ngIf="mSubtitle['errors']?.required">請填寫 Subtitle</span>
 <pre class="help-block">value     = {{mSubtitle.value}}
 pristine  = {{mSubtitle.pristine}}
 dirty     = {{mSubtitle.dirty}}
