@@ -3,14 +3,15 @@
     <div class="card-item"><img src="assets/img/pic5.jpg" alt="MaterialImg" class="fw img-responsive">
       <div class="card-item-text text-right">Paracosm</div>
     </div>
+
+
     <div class="card-offset">
-      <div class="card-offset-item text-left">
-        <button type="button" class="btn-raised btn btn-primary btn-circle btn-lg">25</button>
-      </div>
+      <ng-content select=".part1"></ng-content>
     </div>
+
     <div class="card-body pt0">
       <h4 class="m0">Sky red</h4>
-      <p class="m0"><span class="mr-sm text-muted">by</span><a href="#">John</a></p>
+      <ng-content select=".part2"></ng-content>
     </div>
   </div>
 </div>
