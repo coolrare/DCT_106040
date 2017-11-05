@@ -10,8 +10,11 @@ export class Form1Component implements OnInit {
 
   data: any = {
     title: 'Hello',
-    subtitle: '12312312312'
+    subtitle: '12312312312',
+    emails: []
   };
+
+  emails = ['', '']
 
   doSubmit(form: NgForm) {
     if (form.valid) {
