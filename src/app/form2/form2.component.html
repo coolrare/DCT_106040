@@ -38,6 +38,29 @@ errors    = {{form.get('title').errors | json}}
               </div>
             </div>
           </fieldset>
+
+
+
+          <h3>People</h3>
+
+          <div formArrayName="people">
+
+            <fieldset *ngFor="let group of form.get('people')['controls']; let i = index">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Person {{i}}</label>
+                <div class="col-sm-10" [formGroupName]="i">
+                  <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                  <input type="text" class="form-control" formControlName="tel" placeholder="Tel">
+                  <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                </div>
+              </div>
+            </fieldset>
+
+          </div>
+
+          <input type="button" value="新增人員" (click)="addPerson()">
+
+
           <fieldset>
             <div class="form-group">
               <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
