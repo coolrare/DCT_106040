@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
+
+function NaNValidator(c: AbstractControl) {
+  let isNaN = Number.isNaN(+c.value);
+  return isNaN ? { NaN: true } : null;
+}
 
 @Component({
   selector: 'app-form2',
@@ -27,7 +32,8 @@ export class Form2Component implements OnInit {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(20)
+          Validators.maxLength(20),
+          NaNValidator
         ]
       ],
       people: this.fb.array([
