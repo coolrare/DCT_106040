@@ -13,7 +13,8 @@ export class Form2Component implements OnInit {
     subtitle: 'World 2',
     people: [
       { name: 'Will', tel: '0232423432', email: 'will.huang@example.com'},
-      { name: 'John', tel: '0934834734', email: 'doggy@gmail.com'}
+      { name: 'John', tel: '0934834734', email: 'doggy@xmail.com'},
+      { name: 'Mary', tel: '0584847545', email: 'mary@xmail.com'}
     ]
   };
 
@@ -42,6 +43,9 @@ export class Form2Component implements OnInit {
         })
       ])
     });
+
+    this.form.setControl('people',
+      this.fb.array(this.data.people.map(p => this.fb.group(p))));
 
     this.form.reset(this.data);
   }
