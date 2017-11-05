@@ -14,8 +14,8 @@ form.errors    = {{ form.errors | json}}
       <div class="card-body">
         <form [formGroup]="form" method="get" class="form-horizontal">
           <fieldset>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">Rounded Corners</label>
+            <div class="form-group" [class.has-error]="form.get('title').touched && form.get('title').invalid">
+              <label class="col-sm-2 control-label">Title</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control rounded"
                   formControlName="title">
@@ -30,16 +30,22 @@ errors    = {{form.get('title').errors | json}}
             </div>
           </fieldset>
           <fieldset>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">With help</label>
+            <div class="form-group" [class.has-error]="form.get('subtitle').touched && form.get('subtitle').invalid">
+              <label class="col-sm-2 control-label">Subtitle</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control"
-                  formControlName="subtitle"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                  formControlName="subtitle">
+                <span class="help-block" *ngIf="form.get('subtitle')['errors']?.required">請填寫 Subtitle</span>
+<pre class="help-block">value     = {{form.get('subtitle').value}}
+pristine  = {{form.get('subtitle').pristine}}
+dirty     = {{form.get('subtitle').dirty}}
+touched   = {{form.get('subtitle').touched}}
+untouched = {{form.get('subtitle').untouched}}
+errors    = {{form.get('subtitle').errors | json}}
+</pre>
               </div>
             </div>
           </fieldset>
-
-
 
           <h3>People</h3>
 
