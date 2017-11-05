@@ -1,16 +1,27 @@
 <section>
   <div class="container-fluid">
     <h5 class="mt0">Template-driven form</h5>
-    <pre>{{data|json}}</pre>
+<pre>data       = {{data | json}}
+form.value     = {{ form.value | json }}
+form.submitted = {{ form.submitted }}
+form.valid     = {{ form.valid}}
+form.invalid   = {{ form.invalid}}
+form.pristine  = {{ form.pristine}}
+form.dirty     = {{ form.dirty}}
+form.touched   = {{ form.touched}}
+form.untouched = {{ form.untouched}}
+form.errors    = {{ form.errors | json}}
+</pre>
     <div class="card">
       <div class="card-body">
-        <form method="get" action="/" class="form-horizontal">
+        <form method="get" class="form-horizontal"
+        (ngSubmit)="doSubmit(form)" #form="ngForm">
           <fieldset>
             <div class="form-group" [class.has-error]="mTitle.touched && mTitle.invalid">
               <label class="col-sm-2 control-label">Title</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control rounded" required minlength="3" maxlength="20" pattern="\[.*\] .+"
-                  name="title" [(ngModel)]="data.title" #mTitle="ngModel">
+                  name="my_title" [(ngModel)]="data.title" #mTitle="ngModel">
 <pre class="help-block">value     = {{mTitle.value}}
 pristine  = {{mTitle.pristine}}
 dirty     = {{mTitle.dirty}}
@@ -21,7 +32,8 @@ errors    = {{mTitle.errors | json}}
               </div>
             </div>
           </fieldset>
-          <fieldset>
+          <fieldset ngModelGroup="metadata"
+            #mMetadata="ngModelGroup">
             <div class="form-group" [class.has-error]="mSubtitle.touched && mSubtitle.invalid">
               <label class="col-sm-2 control-label">Subtitle</label>
               <div class="col-sm-10">
@@ -38,6 +50,9 @@ errors    = {{mSubtitle.errors | json}}
               </div>
             </div>
           </fieldset>
+
+          <input type="submit" value="送出表單">
+
           <fieldset>
             <div class="form-group">
               <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
